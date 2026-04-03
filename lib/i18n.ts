@@ -1,48 +1,46 @@
-'use client';
+"use client";
 
 import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  type ReactNode,
-} from 'react';
+    createContext,
+    useContext,
+    useState,
+    type ReactNode,
+} from "react";
 
-export type Lang = 'ko' | 'en';
+export type Lang = "ko" | "en";
 
 interface LanguageContextType {
-  lang: Lang;
-  toggle: () => void;
+    lang: Lang;
+    toggle: () => void;
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  lang: 'ko',
-  toggle: () => {},
+    lang: "ko",
+    toggle: () => {},
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('ko');
-
-  useEffect(() => {
-    const stored = localStorage.getItem('lang') as Lang | null;
-    if (stored === 'ko' || stored === 'en') setLang(stored);
-  }, []);
-
-  const toggle = () => {
-    setLang((prev) => {
-      const next: Lang = prev === 'ko' ? 'en' : 'ko';
-      localStorage.setItem('lang', next);
-      return next;
+    const [lang, setLang] = useState<Lang>(() => {
+        if (typeof window === "undefined") return "ko";
+        const stored = localStorage.getItem("lang");
+        return stored === "ko" || stored === "en" ? stored : "ko";
     });
-  };
 
-  return React.createElement(
-    LanguageContext.Provider,
-    { value: { lang, toggle } },
-    children
-  );
+    const toggle = () => {
+        setLang((prev) => {
+            const next: Lang = prev === "ko" ? "en" : "ko";
+            localStorage.setItem("lang", next);
+            return next;
+        });
+    };
+
+    return React.createElement(
+        LanguageContext.Provider,
+        { value: { lang, toggle } },
+        children,
+    );
 }
 
 export function useLanguage(): LanguageContextType {
-  return useContext(LanguageContext);
+    return useContext(LanguageContext);
 }
