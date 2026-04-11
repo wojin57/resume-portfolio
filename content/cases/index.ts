@@ -11,17 +11,21 @@ export type CaseStudy = {
 };
 
 import { apiRefactor } from "./api-refactor";
-import { responsiveDesign } from "./responsive-design";
+import { claudeAdopting } from "./claude-adopting";
 import { fetchingIntegration } from "./fetching-integration";
 import { redisCaching } from "./redis-caching";
-import { loggingCicd } from "./logging-cicd";
+import { logging } from "./logging";
+import { securityCluster } from "./security-cluster";
+import { testingSetup } from "./testing-setup";
 
 export const cases: CaseStudy[] = [
     apiRefactor,
-    responsiveDesign,
+    claudeAdopting,
     fetchingIntegration,
     redisCaching,
-    loggingCicd,
+    logging,
+    securityCluster,
+    testingSetup,
 ];
 
 export function getCaseBySlug(slug: string): CaseStudy | undefined {

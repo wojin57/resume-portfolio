@@ -5,18 +5,32 @@ import { useLanguage } from "@/lib/i18n";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
+import { cases } from "@/content/cases";
+
+const techCount = cases
+    .flatMap((c) => c.techStack)
+    .reduce<Record<string, number>>((acc, t) => {
+        acc[t] = (acc[t] ?? 0) + 1;
+        return acc;
+    }, {});
+const projectTech = Object.entries(techCount)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([t]) => t);
 
 const data = {
     heading: { ko: "프로젝트", en: "Projects" },
     project: {
         name: "GameChu",
-        period: "2024.01 – 2024.12",
+        period: "2025.05 – 진행중",
         description: {
-            ko: "게임 정보 및 커뮤니티 플랫폼. 프론트엔드 개발 전반을 담당하며 API 구조 개선, 반응형 디자인, Redis 캐싱 최적화, CI/CD 파이프라인 구축을 수행했습니다.",
-            en: "A game information and community platform. Led all frontend development including API restructuring, responsive design, Redis caching optimization, and CI/CD pipeline setup.",
+            ko: "게임 정보 및 커뮤니티 플랫폼. 프론트엔드/백엔드 개발 전반을 담당하며 API 구조 개선, 반응형 디자인, Redis 캐싱 최적화, CI/CD 파이프라인 구축을 수행했습니다.",
+            en: "A game information and community platform. Led all frontend and backend development including API restructuring, responsive design, Redis caching optimization, and CI/CD pipeline setup.",
         },
-        tech: ["React", "TypeScript", "Tailwind CSS", "React Query", "Redis", "GitHub Actions"],
-        portfolioLabel: { ko: "케이스 스터디 보기 →", en: "View Case Studies →" },
+        portfolioLabel: {
+            ko: "케이스 스터디 보기 →",
+            en: "View Case Studies →",
+        },
     },
 };
 
@@ -25,18 +39,22 @@ export function Projects() {
     const p = data.project;
     return (
         <section className="py-8">
-            <h2 className="mb-4 text-2xl font-bold text-gray-900">{data.heading[lang]}</h2>
+            <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                {data.heading[lang]}
+            </h2>
             <Card>
                 <CardHeader>
                     <div className="flex items-center justify-between">
                         <CardTitle className="text-lg">{p.name}</CardTitle>
-                        <span className="text-sm text-gray-500">{p.period}</span>
+                        <span className="text-sm text-gray-500">
+                            {p.period}
+                        </span>
                     </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <p className="text-gray-600">{p.description[lang]}</p>
                     <div className="flex flex-wrap gap-2">
-                        {p.tech.map((t) => (
+                        {projectTech.map((t) => (
                             <Badge key={t} variant="secondary">
                                 {t}
                             </Badge>
@@ -44,7 +62,10 @@ export function Projects() {
                     </div>
                     <Link
                         href="/portfolio"
-                        className={buttonVariants({ variant: "outline", size: "sm" })}
+                        className={buttonVariants({
+                            variant: "outline",
+                            size: "sm",
+                        })}
                     >
                         {p.portfolioLabel[lang]}
                     </Link>

@@ -22,9 +22,10 @@ export function Education() {
             <Separator className="my-4" />
             <div className="space-y-1">
                 <p className="font-semibold text-gray-900">OPic IH</p>
-                <p className="text-sm text-gray-500">
+                <p className="text-gray-600">
                     {lang === "ko" ? "영어 말하기 시험" : "English Speaking Test"}
                 </p>
+                <p className="text-sm text-gray-500">{"2024.09"}</p>
             </div>
         </section>
     );
