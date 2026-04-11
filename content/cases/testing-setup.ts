@@ -12,6 +12,17 @@ export const testingSetup: CaseStudy = {
     },
     tags: ["Testing", "Vitest", "Playwright", "E2E"],
     techStack: ["Vitest", "Playwright", "TypeScript", "React Testing Library"],
+    keywords: [
+        "Vitest",
+        "Playwright",
+        "createMockXxx",
+        "createQueryWrapper",
+        "UseCase",
+        "Repository",
+        "vi.fn()",
+        "CSRF",
+        "E2E",
+    ],
     problem: {
         ko: "프로젝트에 테스트가 전혀 존재하지 않았습니다. 버그는 수동 테스트나 프로덕션 장애로만 발견됐고, 리팩토링할 때마다 회귀를 방지할 안전망이 없었습니다. 테스트 러너, 모킹 전략, 팩토리 패턴 등 기반 인프라 자체가 없는 상태였습니다. 컴포넌트 단위가 아닌 비즈니스 로직 계층(UseCase, Repository)부터 우선 커버해야 했지만, Prisma 의존성과 인터페이스 구조상 모킹 패턴을 먼저 설계해야 했습니다.",
         en: "The project had zero tests. Bugs were discovered only through manual testing or production incidents, and there was no safety net for refactoring. The testing infrastructure itself — test runner, mocking strategies, factory patterns — did not exist. Business logic layers (UseCase, Repository) needed coverage first, but the Prisma dependency and interface structure required mocking patterns to be designed before any tests could be written.",

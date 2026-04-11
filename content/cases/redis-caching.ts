@@ -12,6 +12,17 @@ export const redisCaching: CaseStudy = {
     },
     tags: ["Redis", "Caching", "Architecture", "Backend"],
     techStack: ["Next.js", "TypeScript", "Redis", "PostgreSQL"],
+    keywords: [
+        "withCache",
+        "Redis",
+        "ArenaCacheService",
+        "SCAN",
+        "arena:list:version",
+        "redis.incr()",
+        "redis.del()",
+        "UseCase",
+        "Clean Architecture",
+    ],
     problem: {
         ko: "게임 상세, 장르·플랫폼·테마 목록, 멤버 프로필 등 읽기 빈도가 높은 엔드포인트 6개에 캐시가 전혀 없었습니다. 기존 아레나 캐시는 아키텍처적으로도 문제가 있었습니다. 캐시 로직이 Application 계층인 UseCase 안에 들어 있었고, ArenaCacheService라는 사용 근거가 불분명한 클래스가 존재했으며, 목록 무효화가 SCAN 기반이어서 Redis 키가 폭발적으로 증가할 경우 성능 위험이 있었습니다. 결과적으로 두 가지 경쟁하는 캐시 패턴이 혼재하고 있었습니다.",
         en: "Six high-read endpoints — game detail, genre/platform/theme lists, and member profiles — had no caching at all. The existing arena cache also had architectural problems: cache logic lived inside UseCases (application layer), an ArenaCacheService class existed with unclear ownership, and SCAN-based list invalidation carried performance risk if Redis key space grew large. Two competing cache patterns coexisted with no clear rule for which to use.",

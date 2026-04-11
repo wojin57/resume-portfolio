@@ -9,6 +9,7 @@ export const claudeAdopting: CaseStudy = {
     },
     tags: ["Claude Code", "AI Integration", "Development Efficiency"],
     techStack: ["Claude Code"],
+    keywords: ["Claude Code", "Superpowers", "everything-claude-code"],
     problem: {
         ko: "프로젝트가 진행됨에 따라 기존 코드의 수정이 점점 어려워지고 있었습니다. 특히, 복잡한 로직이나 새로운 기능을 추가할 때마다 코드의 일관성을 유지하는 것이 큰 도전이었습니다. 또한, AI 지원이 부족하여 반복적인 작업에 많은 시간을 소비하고 있었습니다.",
         en: "As the project progressed, modifying existing code became increasingly difficult. Particularly, maintaining consistency when adding complex logic or new features was a significant challenge. Additionally, insufficient AI support meant developers were spending considerable time on repetitive tasks.",

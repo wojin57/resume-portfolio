@@ -12,6 +12,18 @@ export const logging: CaseStudy = {
     },
     tags: ["Logging", "Node.js", "Backend", "Refactoring"],
     techStack: ["Node.js", "pino", "TypeScript", "Next.js"],
+    keywords: [
+        "console.error",
+        "pino",
+        "pino-pretty",
+        "try-catch-rethrow",
+        "UseCase",
+        "logger.child",
+        "HMR",
+        "ISO 8601",
+        "logger.warn",
+        "PM2",
+    ],
     problem: {
         ko: "42개의 console.error 호출이 29개 API 라우트 파일에 퍼져 있었습니다. 로그 레벨도, JSON 구조도 없어 프로덕션에서 PM2가 모든 출력을 동등하게 캡처했고 심각한 에러와 일반 정보를 구별할 방법이 없었습니다. 더 큰 문제는 UseCase 7개에 존재하는 try-catch-rethrow 패턴이었습니다. 오류를 catch하고 console.error로 출력한 뒤 new Error('...')로 다시 던져 원본 Prisma 에러와 스택 트레이스가 완전히 소실됐습니다. 라우트에 도달하는 에러는 항상 메시지만 남은 빈 껍데기였습니다.",
         en: "42 console.error calls were scattered across 29 API route files. With no log levels and no structured output, PM2 in production captured everything equally — there was no way to distinguish critical errors from routine info. The deeper problem was a try-catch-rethrow pattern in 7 UseCases: errors were caught, logged with console.error, and re-thrown as new Error('...'), completely discarding the original Prisma error and stack trace. By the time an error reached the route layer, it was always a bare message with no context.",
