@@ -1,41 +1,14 @@
 "use client";
 
 import { useLanguage } from "@/lib/i18n";
+import { highlightKeywords } from "@/lib/highlight";
 import type { CaseStudy } from "@/content/cases";
 
 const steps = [
-    {
-        key: "problem" as const,
-        label: { ko: "문제", en: "Problem" },
-        dotColor: "bg-red-500",
-        textColor: "text-red-700",
-        borderColor: "border-red-200",
-        bgColor: "bg-red-50",
-    },
-    {
-        key: "plan" as const,
-        label: { ko: "계획", en: "Plan" },
-        dotColor: "bg-yellow-500",
-        textColor: "text-yellow-700",
-        borderColor: "border-yellow-200",
-        bgColor: "bg-yellow-50",
-    },
-    {
-        key: "solution" as const,
-        label: { ko: "해결", en: "Solution" },
-        dotColor: "bg-blue-500",
-        textColor: "text-blue-700",
-        borderColor: "border-blue-200",
-        bgColor: "bg-blue-50",
-    },
-    {
-        key: "result" as const,
-        label: { ko: "결과", en: "Result" },
-        dotColor: "bg-green-500",
-        textColor: "text-green-700",
-        borderColor: "border-green-200",
-        bgColor: "bg-green-50",
-    },
+    { key: "problem" as const, label: { ko: "문제", en: "Problem" }, active: true },
+    { key: "plan" as const, label: { ko: "계획", en: "Plan" }, active: true },
+    { key: "solution" as const, label: { ko: "해결", en: "Solution" }, active: true },
+    { key: "result" as const, label: { ko: "결과", en: "Result" }, active: false },
 ] as const;
 
 interface Props {
@@ -45,32 +18,30 @@ interface Props {
 export function CaseTimeline({ caseStudy: c }: Props) {
     const { lang } = useLanguage();
     return (
-        <div className="space-y-6">
+        <div className="flex flex-col">
             {steps.map((step, i) => (
-                <div key={step.key} className="relative pl-9">
-                    {/* vertical connector line */}
-                    {i < steps.length - 1 && (
-                        <div className="absolute top-7 left-3 h-[calc(100%+1.5rem)] w-0.5 bg-gray-200" />
-                    )}
-                    {/* numbered dot */}
-                    <div
-                        className={`absolute top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full ${step.dotColor}`}
-                    >
-                        <span className="text-xs font-bold text-white">
-                            {i + 1}
-                        </span>
+                <div key={step.key} className="flex gap-4 pb-6 last:pb-0">
+                    {/* left column: dot + connector line */}
+                    <div className="flex w-5 shrink-0 flex-col items-center">
+                        <div
+                            className={`mt-1 h-2.5 w-2.5 rounded-full ${
+                                step.active ? "bg-gray-900" : "bg-gray-300"
+                            }`}
+                        />
+                        {i < steps.length - 1 && (
+                            <div className="mt-1 w-px flex-1 bg-gray-200" />
+                        )}
                     </div>
-                    {/* content card */}
-                    <div
-                        className={`rounded-lg border ${step.borderColor} ${step.bgColor} p-5`}
-                    >
-                        <h3
-                            className={`mb-2 text-sm font-bold tracking-wide uppercase ${step.textColor}`}
-                        >
+                    {/* right column: label + body */}
+                    <div className="flex-1">
+                        <p className="mb-1.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">
                             {step.label[lang]}
-                        </h3>
-                        <p className="leading-relaxed text-gray-700">
-                            {c[step.key][lang]}
+                        </p>
+                        <p className="text-sm leading-7 text-gray-600">
+                            {highlightKeywords(
+                                c[step.key][lang],
+                                c.keywords ?? [],
+                            )}
                         </p>
                     </div>
                 </div>
