@@ -51,7 +51,7 @@ export default function PortfolioPage() {
                                 ))}
                             </div>
                         </div>
-                        <span className="self-center text-lg text-gray-300">
+                        <span className="self-center text-lg text-gray-300" aria-hidden="true">
                             ›
                         </span>
                     </Link>
