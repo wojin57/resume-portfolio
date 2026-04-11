@@ -1,6 +1,11 @@
 "use client";
 
-import React, { createContext, useContext, useState, type ReactNode } from "react";
+import React, {
+    createContext,
+    useContext,
+    useState,
+    type ReactNode,
+} from "react";
 
 export type Lang = "ko" | "en";
 
@@ -29,7 +34,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         });
     };
 
-    return React.createElement(LanguageContext.Provider, { value: { lang, toggle } }, children);
+    return React.createElement(
+        LanguageContext.Provider,
+        { value: { lang, toggle } },
+        children
+    );
 }
 
 export function useLanguage(): LanguageContextType {

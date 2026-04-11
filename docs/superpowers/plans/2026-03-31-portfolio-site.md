@@ -223,13 +223,13 @@ export function Nav() {
                 <nav className="flex gap-6 text-sm font-medium text-gray-700">
                     <Link
                         href="/"
-                        className="hover:text-indigo-600 transition-colors"
+                        className="transition-colors hover:text-indigo-600"
                     >
                         {lang === "ko" ? "이력서" : "Resume"}
                     </Link>
                     <Link
                         href="/portfolio"
-                        className="hover:text-indigo-600 transition-colors"
+                        className="transition-colors hover:text-indigo-600"
                     >
                         {lang === "ko" ? "포트폴리오" : "Portfolio"}
                     </Link>
@@ -967,11 +967,11 @@ export function CaseTimeline({ caseStudy: c }: Props) {
                 <div key={step.key} className="relative pl-9">
                     {/* vertical connector line */}
                     {i < steps.length - 1 && (
-                        <div className="absolute left-3 top-7 h-[calc(100%+1.5rem)] w-0.5 bg-gray-200" />
+                        <div className="absolute top-7 left-3 h-[calc(100%+1.5rem)] w-0.5 bg-gray-200" />
                     )}
                     {/* numbered dot */}
                     <div
-                        className={`absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full ${step.dotColor}`}
+                        className={`absolute top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full ${step.dotColor}`}
                     >
                         <span className="text-xs font-bold text-white">
                             {i + 1}
@@ -982,7 +982,7 @@ export function CaseTimeline({ caseStudy: c }: Props) {
                         className={`rounded-lg border ${step.borderColor} ${step.bgColor} p-5`}
                     >
                         <h3
-                            className={`mb-2 text-sm font-bold uppercase tracking-wide ${step.textColor}`}
+                            className={`mb-2 text-sm font-bold tracking-wide uppercase ${step.textColor}`}
                         >
                             {step.label[lang]}
                         </h3>

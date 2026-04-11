@@ -6,7 +6,11 @@ export function generateStaticParams() {
     return cases.map((c) => ({ slug: c.slug }));
 }
 
-export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function CaseStudyPage({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}) {
     const { slug } = await params;
     const caseStudy = getCaseBySlug(slug);
     if (!caseStudy) notFound();

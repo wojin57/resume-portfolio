@@ -56,16 +56,22 @@ export function CaseTimeline({ caseStudy: c }: Props) {
                     <div
                         className={`absolute top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full ${step.dotColor}`}
                     >
-                        <span className="text-xs font-bold text-white">{i + 1}</span>
+                        <span className="text-xs font-bold text-white">
+                            {i + 1}
+                        </span>
                     </div>
                     {/* content card */}
-                    <div className={`rounded-lg border ${step.borderColor} ${step.bgColor} p-5`}>
+                    <div
+                        className={`rounded-lg border ${step.borderColor} ${step.bgColor} p-5`}
+                    >
                         <h3
                             className={`mb-2 text-sm font-bold tracking-wide uppercase ${step.textColor}`}
                         >
                             {step.label[lang]}
                         </h3>
-                        <p className="leading-relaxed text-gray-700">{c[step.key][lang]}</p>
+                        <p className="leading-relaxed text-gray-700">
+                            {c[step.key][lang]}
+                        </p>
                     </div>
                 </div>
             ))}

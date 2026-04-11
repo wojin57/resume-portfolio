@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     description: "Frontend Developer Resume & Portfolio",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
     return (
         <html lang="ko">
             <body className="bg-white font-sans text-gray-900 antialiased">

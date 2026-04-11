@@ -2,7 +2,10 @@ import type { CaseStudy } from "./index";
 
 export const securityCluster: CaseStudy = {
     slug: "security-cluster",
-    title: { ko: "XSS·CSRF·입력 검증 보안 클러스터", en: "XSS, CSRF & Input Validation Security Cluster" },
+    title: {
+        ko: "XSS·CSRF·입력 검증 보안 클러스터",
+        en: "XSS, CSRF & Input Validation Security Cluster",
+    },
     summary: {
         ko: "리치 텍스트 에디터 XSS, CSRF 무방비 뮤테이션, 44개 라우트의 임시방편 검증, ECC 리뷰에서 발견된 치명적 취약점 3건을 순차적으로 수정하며 전체 API 보안 기반을 구축했습니다.",
         en: "Systematically addressed rich-text editor XSS, CSRF-unprotected mutations, ad-hoc validation across 44 routes, and 3 critical vulnerabilities found in an external code review — building a full API security baseline.",

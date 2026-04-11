@@ -2,7 +2,10 @@ import type { CaseStudy } from "./index";
 
 export const testingSetup: CaseStudy = {
     slug: "testing-setup",
-    title: { ko: "테스트 인프라 구축 및 99개 테스트 작성", en: "Building Test Infrastructure & Writing 99 Tests" },
+    title: {
+        ko: "테스트 인프라 구축 및 99개 테스트 작성",
+        en: "Building Test Infrastructure & Writing 99 Tests",
+    },
     summary: {
         ko: "테스트가 전혀 없던 프로젝트에 Vitest 단위 테스트 인프라를 구축하고 UseCase·Repository 계층에 99개 테스트를 작성한 뒤, Playwright E2E로 인증 흐름과 CSRF 동작을 자동화했습니다.",
         en: "Built Vitest unit test infrastructure from scratch for a project with no tests, wrote 99 tests covering the UseCase and Repository layers, then automated authentication flows and CSRF behavior with Playwright E2E.",

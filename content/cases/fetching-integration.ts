@@ -2,7 +2,10 @@ import type { CaseStudy } from "./index";
 
 export const fetchingIntegration: CaseStudy = {
     slug: "fetching-integration",
-    title: { ko: "TanStack Query 데이터 페칭 통합", en: "TanStack Query Data Fetching Integration" },
+    title: {
+        ko: "TanStack Query 데이터 페칭 통합",
+        en: "TanStack Query Data Fetching Integration",
+    },
     summary: {
         ko: "훅과 컴포넌트에 산재한 useState+useEffect 패턴을 TanStack Query로 통합하여 중복 요청 제거, 캐시 일관성, 컴포넌트 인라인 fetch 분리를 한 번에 달성했습니다.",
         en: "Replaced scattered useState+useEffect patterns across hooks and components with TanStack Query, eliminating duplicate requests, unifying cache state, and extracting inline fetch logic from components in one pass.",

@@ -31,10 +31,12 @@ const CATEGORIES = [
     },
 ];
 
-const techCount = cases.flatMap((c) => c.techStack).reduce<Record<string, number>>((acc, t) => {
-    acc[t] = (acc[t] ?? 0) + 1;
-    return acc;
-}, {});
+const techCount = cases
+    .flatMap((c) => c.techStack)
+    .reduce<Record<string, number>>((acc, t) => {
+        acc[t] = (acc[t] ?? 0) + 1;
+        return acc;
+    }, {});
 
 const groups = CATEGORIES.map((cat) => ({
     label: cat.label,

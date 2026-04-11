@@ -15,7 +15,9 @@ export function Education() {
                     {lang === "ko" ? "성균관대학교" : "Sungkyunkwan University"}
                 </p>
                 <p className="text-gray-600">
-                    {lang === "ko" ? "수학과 / 소프트웨어학과" : "Mathematics / Software"}
+                    {lang === "ko"
+                        ? "수학과 / 소프트웨어학과"
+                        : "Mathematics / Software"}
                 </p>
                 <p className="text-sm text-gray-500">2018.03 – 2025.02</p>
             </div>
@@ -23,7 +25,9 @@ export function Education() {
             <div className="space-y-1">
                 <p className="font-semibold text-gray-900">OPic IH</p>
                 <p className="text-gray-600">
-                    {lang === "ko" ? "영어 말하기 시험" : "English Speaking Test"}
+                    {lang === "ko"
+                        ? "영어 말하기 시험"
+                        : "English Speaking Test"}
                 </p>
                 <p className="text-sm text-gray-500">{"2024.09"}</p>
             </div>

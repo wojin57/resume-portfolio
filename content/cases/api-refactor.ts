@@ -2,7 +2,10 @@ import type { CaseStudy } from "./index";
 
 export const apiRefactor: CaseStudy = {
     slug: "api-refactor",
-    title: { ko: "Arena API 타입 안전성 및 캐시 리팩토링", en: "Arena API Type Safety & Cache Refactor" },
+    title: {
+        ko: "Arena API 타입 안전성 및 캐시 리팩토링",
+        en: "Arena API Type Safety & Cache Refactor",
+    },
     summary: {
         ko: "Arena API에서 PostgreSQL SQL 버그, as any 남발, 캐시 부재 문제를 한 번에 해결하여 타입 안전성과 응답 속도를 모두 개선했습니다.",
         en: "Resolved PostgreSQL SQL bugs, pervasive as any casts, and missing cache in the Arena API in one PR — improving both type safety and response speed.",

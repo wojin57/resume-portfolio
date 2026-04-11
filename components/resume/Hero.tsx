@@ -17,9 +17,15 @@ export function Hero() {
     const { lang } = useLanguage();
     return (
         <section className="py-16">
-            <h1 className="mb-1 text-4xl font-bold text-gray-900">{data.name[lang]}</h1>
-            <p className="mb-4 text-xl font-medium text-indigo-600">{data.title[lang]}</p>
-            <p className="mb-6 max-w-xl leading-relaxed text-gray-600">{data.intro[lang]}</p>
+            <h1 className="mb-1 text-4xl font-bold text-gray-900">
+                {data.name[lang]}
+            </h1>
+            <p className="mb-4 text-xl font-medium text-indigo-600">
+                {data.title[lang]}
+            </p>
+            <p className="mb-6 max-w-xl leading-relaxed text-gray-600">
+                {data.intro[lang]}
+            </p>
             <div className="flex gap-4">
                 <a
                     href={data.github}
