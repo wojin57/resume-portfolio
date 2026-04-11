@@ -4,6 +4,7 @@ export type CaseStudy = {
     summary: { ko: string; en: string };
     tags: string[];
     techStack: string[];
+    keywords?: string[];
     problem: { ko: string; en: string };
     plan: { ko: string; en: string };
     solution: { ko: string; en: string };
