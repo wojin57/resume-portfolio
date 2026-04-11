@@ -12,7 +12,10 @@ export function highlightKeywords(
 ): ReactNode {
     if (!keywords.length) return text;
 
-    const escaped = keywords
+    const filtered = keywords.filter((k) => k.length > 0);
+    if (!filtered.length) return text;
+
+    const escaped = filtered
         .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
         .sort((a, b) => b.length - a.length);
 
@@ -20,7 +23,7 @@ export function highlightKeywords(
     const parts = text.split(pattern);
 
     return parts.map((part, i) =>
-        keywords.some((k) => k.toLowerCase() === part.toLowerCase()) ? (
+        filtered.some((k) => k.toLowerCase() === part.toLowerCase()) ? (
             <strong key={i} className="font-semibold text-blue-600">
                 {part}
             </strong>
