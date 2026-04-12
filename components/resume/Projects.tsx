@@ -61,7 +61,7 @@ export function Projects() {
                             rel="noopener noreferrer"
                             className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900"
                         >
-                            <Image src="/github-mark.svg" alt="GitHub" width={16} height={16} unoptimized />
+                            <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/github-mark.svg`} alt="GitHub" width={16} height={16} unoptimized />
                             GitHub
                         </a>
                         <a

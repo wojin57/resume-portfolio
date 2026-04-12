@@ -35,7 +35,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:underline"
                 >
-                    <Image src="/github-mark.svg" alt="GitHub" width={16} height={16} unoptimized />
+                    <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/github-mark.svg`} alt="GitHub" width={16} height={16} unoptimized />
                     GitHub
                 </a>
                 <a
