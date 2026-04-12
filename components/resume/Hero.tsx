@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import { Mail } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
 const data = {
@@ -31,14 +33,16 @@ export function Hero() {
                     href={data.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-indigo-600 hover:underline"
+                    className="flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:underline"
                 >
+                    <Image src="/github-mark.svg" alt="GitHub" width={16} height={16} unoptimized />
                     GitHub
                 </a>
                 <a
                     href={`mailto:${data.email}`}
-                    className="text-sm font-medium text-indigo-600 hover:underline"
+                    className="flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:underline"
                 >
+                    <Mail className="h-4 w-4" />
                     {data.email}
                 </a>
             </div>

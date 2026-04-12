@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +25,8 @@ const data = {
     project: {
         name: "GameChu",
         period: "2025.05 – 진행중",
+        github: "https://github.com/FRONT-END-BOOTCAMP-PLUS-4/gamechu",
+        site: "https://www.gamechu.com/",
         description: {
             ko: "게임 정보 및 커뮤니티 플랫폼. 프론트엔드/백엔드 개발 전반을 담당하며 API 구조 개선, 반응형 디자인, Redis 캐싱 최적화, CI/CD 파이프라인 구축을 수행했습니다.",
             en: "A game information and community platform. Led all frontend and backend development including API restructuring, responsive design, Redis caching optimization, and CI/CD pipeline setup.",
@@ -49,6 +53,26 @@ export function Projects() {
                         <span className="text-sm text-gray-500">
                             {p.period}
                         </span>
+                    </div>
+                    <div className="flex gap-4">
+                        <a
+                            href={p.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900"
+                        >
+                            <Image src="/github-mark.svg" alt="GitHub" width={16} height={16} unoptimized />
+                            GitHub
+                        </a>
+                        <a
+                            href={p.site}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900"
+                        >
+                            <ExternalLink className="h-4 w-4" />
+                            gamechu.com
+                        </a>
                     </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
