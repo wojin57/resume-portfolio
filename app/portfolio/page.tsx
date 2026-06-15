@@ -9,7 +9,15 @@ export default function PortfolioPage() {
     const { lang } = useLanguage();
 
     return (
-        <div className="mx-auto max-w-4xl px-6 py-12">
+        <div className="mx-auto max-w-4xl px-6 py-12 print:py-6">
+            <div className="mb-4 flex justify-end print:hidden">
+                <button
+                    onClick={() => window.print()}
+                    className="rounded border border-gray-200 px-3 py-1.5 text-xs text-gray-500 hover:bg-gray-50"
+                >
+                    {lang === "ko" ? "PDF 저장" : "Save as PDF"}
+                </button>
+            </div>
             <h1 className="mb-1 text-3xl font-bold tracking-tight text-gray-900">
                 {lang === "ko" ? "포트폴리오" : "Portfolio"}
             </h1>
@@ -44,7 +52,7 @@ export default function PortfolioPage() {
                                 {c.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="rounded bg-blue-50 px-2 py-0.5 text-[10px] font-semibold text-blue-700"
+                                        className="rounded bg-blue-50 px-2 py-0.5 text-[10px] font-semibold text-blue-700 print:border print:border-blue-200 print:bg-white"
                                     >
                                         {tag}
                                     </span>

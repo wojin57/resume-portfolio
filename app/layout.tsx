@@ -17,7 +17,9 @@ export default function RootLayout({
         <html lang="ko">
             <body className="bg-white font-sans text-gray-900 antialiased">
                 <LanguageProvider>
-                    <Nav />
+                    <div className="print:hidden">
+                        <Nav />
+                    </div>
                     <main>{children}</main>
                 </LanguageProvider>
             </body>
